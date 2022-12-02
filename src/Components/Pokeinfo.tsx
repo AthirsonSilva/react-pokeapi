@@ -4,9 +4,25 @@ import { Modal } from 'react-bootstrap'
 
 const Pokeinfo = ({ data }: any): JSX.Element => {
 	const [show, setShow] = React.useState<boolean>(false)
-
 	const handleClose = () => setShow(false)
 	const handleShow = () => setShow(true)
+
+	console.log(data)
+
+	const getPokemonLocationEncounters = async (): Promise<any> => {
+		const result = await fetch(
+			`https://pokeapi.co/api/v2/pokemon/${data.id}/encounters`
+		)
+		const json = await result.json()
+
+		console.log('encounters', json)
+	}
+
+	React.useEffect((): void => {
+		if (data.id) {
+			getPokemonLocationEncounters()
+		}
+	}, [data.id])
 
 	return (
 		<>
