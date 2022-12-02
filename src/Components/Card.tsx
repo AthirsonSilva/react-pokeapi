@@ -22,7 +22,6 @@ const Card = ({
 								key={item.id}
 								onClick={(): void => infoPokemon(item)}
 							>
-								<h2>{item.id}</h2>
 								<img
 									src={item.sprites.front_default}
 									alt='pokemon'

@@ -1,7 +1,12 @@
+import 'bootstrap/dist/css/bootstrap.min.css'
 import React from 'react'
+import { Modal } from 'react-bootstrap'
 
 const Pokeinfo = ({ data }: any): JSX.Element => {
-	console.log(data)
+	const [show, setShow] = React.useState<boolean>(false)
+
+	const handleClose = () => setShow(false)
+	const handleShow = () => setShow(true)
 
 	return (
 		<>
@@ -11,7 +16,7 @@ const Pokeinfo = ({ data }: any): JSX.Element => {
 				</>
 			) : (
 				<>
-					<h1>{data.name}</h1>
+					<h1 className='pokemon-name'>{data.name}</h1>
 					<img src={data.sprites.front_default} alt='pokemon' />
 					<div className='types'>
 						{data.types.map((item: any) => {
@@ -29,7 +34,7 @@ const Pokeinfo = ({ data }: any): JSX.Element => {
 							return (
 								<>
 									<div className='group'>
-										<h3>{item.ability.name}</h3>
+										<h6>{item.ability.name}</h6>
 									</div>
 								</>
 							)
@@ -48,6 +53,34 @@ const Pokeinfo = ({ data }: any): JSX.Element => {
 							)
 						})}
 					</div>
+					<br />
+					<div className='btn-group'>
+						<button
+							className='skills-btn'
+							onClick={(): void => handleShow()}
+						>
+							Skills
+						</button>
+					</div>
+
+					<Modal show={show} onHide={(): void => handleClose()}>
+						<Modal.Header closeButton>
+							<Modal.Title>
+								{data.name.toString()}'s movepool
+							</Modal.Title>
+						</Modal.Header>
+						<Modal.Body>
+							{data.moves.map((item: any): JSX.Element => {
+								return (
+									<>
+										<div className='group'>
+											<h3>{item.move.name}</h3>
+										</div>
+									</>
+								)
+							})}
+						</Modal.Body>
+					</Modal>
 				</>
 			)}
 		</>

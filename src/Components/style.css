@@ -40,6 +40,11 @@ body {
     box-sizing: border-box;
 }
 
+.card h3 {
+    padding-bottom: 5rem;
+    color: white;
+}
+
 .right-content {
     width: 50%;
     text-align: center;
@@ -80,9 +85,9 @@ body {
 
 .types .group {
     background-color: #abe2f0;
-    height: 50px;
+    height: 60px;
     text-transform: uppercase;
-    width: 150px;
+    width: 175px;
     color: white;
     padding-top: 0.95rem;
     border-radius: 0.5rem;
@@ -96,9 +101,9 @@ body {
 .abilities .group {
     background-color: #b74555;
     color: white;    
-    height: 50px;
+    height: 60px;
     text-transform: uppercase;
-    width: 150px;
+    width: 175px;
     color: white;
     padding-top: 0.95rem;
     font-size: 10px;
@@ -109,6 +114,21 @@ body {
 
 .base-stat {
     margin-top: 1rem;
+    background-color: white;
+    border-radius: 0.5rem;
+    width: 30%;
+    text-align: justify;
+    margin: auto;
+    padding-left: 0.75rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+}
+
+.base-stat h3 {
+    text-transform: uppercase;
+    font-weight: bold;
+    padding-top: 0.25rem;
+    letter-spacing: 1px;
 }
 
 .btn-group {
@@ -126,4 +146,17 @@ body {
     color: white;
     background-color: #b74555;
     border-radius: 8px;
+}
+
+.btn-group .skills-btn {
+    margin: auto;
+}
+
+.skills-btn {
+    margin-top: 1rem;
+}
+
+.pokemon-name {
+    font-style: italic;
+    color: #b74555;
 }
