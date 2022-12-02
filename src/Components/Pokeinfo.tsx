@@ -13,6 +13,17 @@ const Pokeinfo = ({ data }: any): JSX.Element => {
 				<>
 					<h1>{data.name}</h1>
 					<img src={data.sprites.front_default} alt='pokemon' />
+					<div className='types'>
+						{data.types.map((item: any) => {
+							return (
+								<>
+									<div className='group'>
+										<h3>{item.type.name}</h3>
+									</div>
+								</>
+							)
+						})}
+					</div>
 					<div className='abilities'>
 						{data.abilities.map((item: any): JSX.Element => {
 							return (

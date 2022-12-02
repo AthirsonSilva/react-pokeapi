@@ -30,6 +30,7 @@ body {
     width: 275px;
     height: 125px;
     background-color: #9EDEF9;
+    text-transform: capitalize;
     border-radius: 1rem;
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
     padding: 0 1.5rem;
@@ -68,12 +69,39 @@ body {
     margin-top: 1rem;
 }
 
+.types {
+    width: 30%;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.types .group {
+    background-color: #abe2f0;
+    height: 50px;
+    text-transform: uppercase;
+    width: 150px;
+    color: white;
+    padding-top: 0.95rem;
+    border-radius: 0.5rem;
+    font-size: 10px;
+    margin: auto 0.25rem auto 0.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .abilities .group {
     background-color: #b74555;
     color: white;    
     height: 50px;
-    padding: 0.75rem;
-    font-size: 12px;
+    text-transform: uppercase;
+    width: 150px;
+    color: white;
+    padding-top: 0.95rem;
+    font-size: 10px;
     margin: auto 0.25rem auto 0.25rem;
     border-radius: 8px;
     margin-bottom: 25px;
