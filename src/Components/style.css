@@ -23,13 +23,13 @@ body {
 .left-content {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 0.5fr));
-    grid-gap: 6rem;
+    grid-gap: 2rem;
 }
 
 .card {
     width: 275px;
     height: 125px;
-    background-color: #9EDEF9;
+    background-color: #ffffff;
     text-transform: capitalize;
     border-radius: 1rem;
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
@@ -42,7 +42,8 @@ body {
 
 .card h3 {
     padding-bottom: 5rem;
-    color: white;
+    font-style: italic;
+    color: #b74555;
 }
 
 .right-content {
@@ -133,6 +134,8 @@ body {
 
 .btn-group {
     display: flex;
+    padding: 0.1rem;
+    justify-content: space-around;
 }
 
 .btn-group button {
@@ -148,9 +151,11 @@ body {
     border-radius: 8px;
 }
 
-.btn-group .skills-btn {
-    margin: auto;
+.info-btn-group {
+    margin-left: 25rem;
+    margin-right: 25rem;
 }
+
 
 .skills-btn {
     margin-top: 1rem;

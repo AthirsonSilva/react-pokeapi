@@ -4,8 +4,10 @@ import { Modal } from 'react-bootstrap'
 
 const Pokeinfo = ({ data }: any): JSX.Element => {
 	const [show, setShow] = React.useState<boolean>(false)
+	const [encounters, setEncounters] = React.useState<any[]>([])
 	const handleClose = () => setShow(false)
 	const handleShow = () => setShow(true)
+	const [infoTitle, setInfoTitle] = React.useState<string>('')
 
 	console.log(data)
 
@@ -14,8 +16,43 @@ const Pokeinfo = ({ data }: any): JSX.Element => {
 			`https://pokeapi.co/api/v2/pokemon/${data.id}/encounters`
 		)
 		const json = await result.json()
+		setEncounters(json)
 
 		console.log('encounters', json)
+	}
+
+	const renderMovepools = (): JSX.Element => {
+		console.log('data', data.moves)
+
+		return (
+			<>
+				{data.moves.map((item: any): JSX.Element => {
+					return (
+						<>
+							<div className='group'>
+								<h6>{item.move.name}</h6>
+							</div>
+						</>
+					)
+				})}
+			</>
+		)
+	}
+
+	const renderEncounters = (): JSX.Element => {
+		return (
+			<>
+				{encounters.map((item: any): JSX.Element => {
+					return (
+						<>
+							<div className='group'>
+								<h3>{item.location_area.name}</h3>
+							</div>
+						</>
+					)
+				})}
+			</>
+		)
 	}
 
 	React.useEffect((): void => {
@@ -70,31 +107,42 @@ const Pokeinfo = ({ data }: any): JSX.Element => {
 						})}
 					</div>
 					<br />
-					<div className='btn-group'>
+					<div className='btn-group info-btn-group'>
 						<button
 							className='skills-btn'
-							onClick={(): void => handleShow()}
+							onClick={(): void => {
+								setInfoTitle('movepool')
+
+								handleShow()
+							}}
 						>
 							Skills
+						</button>
+						<button
+							className='skills-btn'
+							onClick={(): void => {
+								setInfoTitle('encounters')
+
+								handleShow()
+							}}
+						>
+							Encounters
 						</button>
 					</div>
 
 					<Modal show={show} onHide={(): void => handleClose()}>
 						<Modal.Header closeButton>
 							<Modal.Title>
-								{data.name.toString()}'s movepool
+								{data.name.toString()}'s {infoTitle}
 							</Modal.Title>
 						</Modal.Header>
 						<Modal.Body>
-							{data.moves.map((item: any): JSX.Element => {
-								return (
-									<>
-										<div className='group'>
-											<h3>{item.move.name}</h3>
-										</div>
-									</>
-								)
-							})}
+							{infoTitle === 'movepool'
+								? renderMovepools()
+								: null}
+							{infoTitle === 'encounters'
+								? renderEncounters()
+								: null}
 						</Modal.Body>
 					</Modal>
 				</>
