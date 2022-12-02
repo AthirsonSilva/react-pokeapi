@@ -30,7 +30,7 @@ const Main = (): JSX.Element => {
 
 			setPokedata((pokedata: any): any[] => {
 				pokedata = [...pokedata, pokemon]
-				pokedata.sort((a: any, b: any) => a.id - b.id)
+				pokedata.sort((a: any, b: any) => (a.id - b.id ? 1 : -1))
 
 				// remove duplicates
 				const unique = pokedata.filter(
@@ -63,12 +63,28 @@ const Main = (): JSX.Element => {
 					/>
 					<br></br>
 					<div className='btn-group'>
-						<button onClick={(): void => setUrl(previousUrl)}>
-							Previous
-						</button>
-						<button onClick={(): void => setUrl(nextUrl)}>
-							Next
-						</button>
+						{previousUrl && (
+							<button
+								onClick={(): void => {
+									setPokedata([])
+
+									setUrl(previousUrl)
+								}}
+							>
+								Previous
+							</button>
+						)}
+						{nextUrl && (
+							<button
+								onClick={(): void => {
+									setPokedata([])
+
+									setUrl(nextUrl)
+								}}
+							>
+								Next
+							</button>
+						)}
 					</div>
 				</div>
 				<div className='right-content'>

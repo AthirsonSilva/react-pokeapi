@@ -18,7 +18,7 @@ const Pokeinfo = ({ data }: any): JSX.Element => {
 							return (
 								<>
 									<div className='group'>
-										<h2>{item.ability.name}</h2>
+										<h3>{item.ability.name}</h3>
 									</div>
 								</>
 							)
