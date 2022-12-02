@@ -26,7 +26,24 @@ const Main = (): JSX.Element => {
 		data.map(async (item: any): Promise<void> => {
 			const result = await fetch(item.url)
 			const pokemon = await result.json()
-			setPokedata((pokedata: any) => [...pokedata, pokemon])
+
+			setPokedata((pokedata: any): any[] => {
+				pokedata = [...pokedata, pokemon]
+				pokedata.sort((a: any, b: any) => a.id - b.id)
+
+				// remove duplicates
+				const unique = pokedata.filter(
+					(item: any, index: number): boolean => {
+						return (
+							pokedata.findIndex(
+								(item2: any): boolean => item2.id === item.id
+							) === index
+						)
+					}
+				)
+
+				return unique
+			})
 		})
 	}
 
@@ -45,7 +62,7 @@ const Main = (): JSX.Element => {
 					</div>
 				</div>
 				<div className='right-content'>
-					<Pokeinfo />
+					<Pokeinfo pokemon={pokedata} loading={loading} />
 				</div>
 			</div>
 		</>
