@@ -1,6 +1,6 @@
 {
   "name": "poke-api",
-  "homepage: "http://athirsonsilva.github.io/react-pokeapi",
+  "homepage": "http://athirsonsilva.github.io/react-pokeapi",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
