@@ -1,13 +1,34 @@
 import React from 'react'
 
-const Card = (): JSX.Element => {
+const Card = ({
+	pokemon,
+	loading
+}: {
+	pokemon: any[]
+	loading: boolean
+}): JSX.Element => {
+	console.log(pokemon)
+
 	return (
 		<>
-			<div className='card'>
-				<h2>1</h2>
-				<img src='/img/charmander.png' alt='pokemon' />
-				<h3>Charmander</h3>
-			</div>
+			{loading ? (
+				<h1>Loading...</h1>
+			) : (
+				pokemon.map((item: any): JSX.Element => {
+					return (
+						<>
+							<div className='card'>
+								<h2>{item.id}</h2>
+								<img
+									src={item.sprites.front_default}
+									alt='pokemon'
+								/>
+								<h3>{item.species.name}</h3>
+							</div>
+						</>
+					)
+				})
+			)}
 		</>
 	)
 }
