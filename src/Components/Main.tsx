@@ -61,9 +61,14 @@ const Main = (): JSX.Element => {
 						loading={loading}
 						infoPokemon={(pokemon) => setPokeDex(pokemon)}
 					/>
+					<br></br>
 					<div className='btn-group'>
-						<button>Previous</button>
-						<button>Next</button>
+						<button onClick={(): void => setUrl(previousUrl)}>
+							Previous
+						</button>
+						<button onClick={(): void => setUrl(nextUrl)}>
+							Next
+						</button>
 					</div>
 				</div>
 				<div className='right-content'>
