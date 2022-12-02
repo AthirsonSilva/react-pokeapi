@@ -1,44 +1,43 @@
 import React from 'react'
 
-const Pokeinfo = ({
-	pokemon,
-	loading
-}: {
-	pokemon: any[]
-	loading: boolean
-}): JSX.Element => {
+const Pokeinfo = ({ data }: any): JSX.Element => {
+	console.log(data)
+
 	return (
 		<>
-			{loading ? (
-				<h1>Loading...</h1>
+			{data.length === 0 ? (
+				<>
+					<h5>Click on a pokemon to see more info</h5>
+				</>
 			) : (
-				pokemon.map((item: any): JSX.Element => {
-					return (
-						<>
-							<h1>{item.species.name}</h1>
-							<img
-								src={item.sprites.front_default}
-								alt={item.species.name}
-							/>
-							<div className='abilities'>
-								<div className='group'>
-									<h2>Blaze</h2>
-								</div>
-								<div className='group'>
-									<h2>Solar Power</h2>
-								</div>
-							</div>
-							<div className='base-stat'>
-								<h3>HP: 30</h3>
-								<h3>Attack: 52</h3>
-								<h3>Defense: 43</h3>
-								<h3>Special attack: 60</h3>
-								<h3>Special defense: 50</h3>
-								<h3>Speed: 65</h3>
-							</div>
-						</>
-					)
-				})
+				<>
+					<h1>{data.name}</h1>
+					<img src={data.sprites.front_default} alt='pokemon' />
+					<div className='abilities'>
+						{data.abilities.map((item: any): JSX.Element => {
+							return (
+								<>
+									<div className='group'>
+										<h2>{item.ability.name}</h2>
+									</div>
+								</>
+							)
+						})}
+					</div>
+					<div className='base-stat'>
+						{data.stats.map((item: any): JSX.Element => {
+							return (
+								<>
+									<div className='group'>
+										<h3>
+											{item.stat.name}: {item.base_stat}
+										</h3>
+									</div>
+								</>
+							)
+						})}
+					</div>
+				</>
 			)}
 		</>
 	)

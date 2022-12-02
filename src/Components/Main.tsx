@@ -10,6 +10,7 @@ const Main = (): JSX.Element => {
 	)
 	const [nextUrl, setNextUrl] = React.useState<string>('')
 	const [previousUrl, setPreviousUrl] = React.useState<string>('')
+	const [pokeDex, setPokeDex] = React.useState<any[]>([])
 
 	const fetchPokemons = async (): Promise<void> => {
 		fetch(url)
@@ -55,14 +56,18 @@ const Main = (): JSX.Element => {
 		<>
 			<div className='container'>
 				<div className='left-content'>
-					<Card pokemon={pokedata} loading={loading} />
+					<Card
+						pokemon={pokedata}
+						loading={loading}
+						infoPokemon={(pokemon) => setPokeDex(pokemon)}
+					/>
 					<div className='btn-group'>
 						<button>Previous</button>
 						<button>Next</button>
 					</div>
 				</div>
 				<div className='right-content'>
-					<Pokeinfo pokemon={pokedata} loading={loading} />
+					<Pokeinfo data={pokeDex} />
 				</div>
 			</div>
 		</>
