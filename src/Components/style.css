@@ -48,6 +48,8 @@ body {
 
 .right-content {
     width: 50%;
+    height: 800px;
+    overflow-y: auto;
     text-align: center;
     color: black;
     position: fixed;
@@ -81,7 +83,10 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin-top: 1rem;
+}
+
+.group h3 {
+    text-transform: capitalize;
 }
 
 .types .group {
@@ -117,7 +122,7 @@ body {
     margin-top: 1rem;
     background-color: white;
     border-radius: 0.5rem;
-    width: 30%;
+    width: 35%;
     text-align: justify;
     margin: auto;
     padding-left: 0.75rem;
@@ -127,9 +132,9 @@ body {
 
 .base-stat h3 {
     text-transform: uppercase;
-    font-weight: bold;
+    font-style: italic;
+    color: #b74555;
     padding-top: 0.25rem;
-    letter-spacing: 1px;
 }
 
 .btn-group {

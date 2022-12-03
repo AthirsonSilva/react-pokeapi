@@ -30,7 +30,11 @@ const Pokeinfo = ({ data }: any): JSX.Element => {
 					return (
 						<>
 							<div className='group'>
-								<h6>{item.move.name}</h6>
+								<h3>
+									{item.move.name
+										.toString()
+										.replace('-', ' ')}
+								</h3>
 							</div>
 						</>
 					)
@@ -43,10 +47,21 @@ const Pokeinfo = ({ data }: any): JSX.Element => {
 		return (
 			<>
 				{encounters.map((item: any): JSX.Element => {
+					let locationArea = item.location_area.name
+						.toString()
+						.replace('-', ' ')
+
+					// removes the last word in the string
+					locationArea = locationArea
+						.replace('-', ' ')
+						.split(' ')
+						.slice(0, -1)
+						.join(' ')
+
 					return (
 						<>
 							<div className='group'>
-								<h3>{item.location_area.name}</h3>
+								<h3>{locationArea}</h3>
 							</div>
 						</>
 					)
@@ -133,7 +148,8 @@ const Pokeinfo = ({ data }: any): JSX.Element => {
 					<Modal show={show} onHide={(): void => handleClose()}>
 						<Modal.Header closeButton>
 							<Modal.Title>
-								{data.name.toString()}'s {infoTitle}
+								{data.name.toString().toUpperCase()}'s{' '}
+								{infoTitle.toString().toUpperCase()}
 							</Modal.Title>
 						</Modal.Header>
 						<Modal.Body>
