@@ -2,11 +2,10 @@ name: React Pokedex CI/CD
 
 on: 
   push:
-    branches: ["master", "gh-pages"]
+    branches: [ 'master', 'gh-pages' ]
 
   pull_request:
-    branches:
-      - master
+    branches: [ 'master', 'gh-pages' ]
 
   workflow_dispatch:
     
@@ -24,22 +23,22 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: 20
-          cache: 'npm'
-      - name: Install Dependencies
-        run: npm install
-      - name: Build
-        run: npm run build
-      - name: Setup Pages
-        uses: actions/configure-pages@v3
-      - name: Deploy
-        uses: peaceiris/upload-pages-artifact@v1
-        with:
-          publish_dir: ./build
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: 20
+        cache: 'npm'
+    - name: Install dependencies
+      run: npm install
+    - name: Build
+      run: npm run build
+    - name: Setup Pages
+      uses: actions/configure-pages@v3
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v1
+      with:
+        publish_dir: './build'
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
