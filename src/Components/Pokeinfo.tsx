@@ -84,7 +84,9 @@ const Pokeinfo = ({ data }: any): JSX.Element => {
 				</>
 			) : (
 				<>
-					<h1 className='pokemon-name'>{data.name}</h1>
+					<h1 className='pokemon-name'>
+						{data.name.toString()} - #{data.id}
+					</h1>
 					<img src={data.sprites.front_default} alt='pokemon' />
 					<div className='types'>
 						{data.types.map((item: any) => {
@@ -107,42 +109,6 @@ const Pokeinfo = ({ data }: any): JSX.Element => {
 								</>
 							)
 						})}
-					</div>
-					<div className='base-stat'>
-						{data.stats.map((item: any): JSX.Element => {
-							return (
-								<>
-									<div className='group'>
-										<h3>
-											{item.stat.name}: {item.base_stat}
-										</h3>
-									</div>
-								</>
-							)
-						})}
-					</div>
-					<br />
-					<div className='btn-group info-btn-group'>
-						<button
-							className='skills-btn'
-							onClick={(): void => {
-								setInfoTitle('movepool')
-
-								handleShow()
-							}}
-						>
-							Skills
-						</button>
-						<button
-							className='skills-btn'
-							onClick={(): void => {
-								setInfoTitle('encounters')
-
-								handleShow()
-							}}
-						>
-							Encounters
-						</button>
 					</div>
 
 					<Modal show={show} onHide={(): void => handleClose()}>

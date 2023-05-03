@@ -1,172 +1,180 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: sans-serif;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: sans-serif;
 }
 
 body {
-    background-color: #fff4d9;
+	background-color: #faf4e7;
+	scrollbar-width: none;
+}
+
+body::-webkit-scrollbar {
+	display: none;
 }
 
 .container {
-    width: 90%;
-    margin: auto;
-    padding-top: 100px;
-    display: flex;
+	width: 90%;
+	margin: auto;
+	padding-top: 100px;
+	display: flex;
 }
 
-.left-content, .right-content {
-    flex-basis: 50%;
+.left-content,
+.right-content {
+	flex-basis: 50%;
 }
 
 .left-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 0.5fr));
-    grid-gap: 2rem;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 0.5fr));
+	grid-gap: 1.8rem;
 }
 
 .card {
-    width: 275px;
-    height: 125px;
-    background-color: #ffffff;
-    text-transform: capitalize;
-    border-radius: 1rem;
-    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
-    padding: 0 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    box-sizing: border-box;
+	width: 274px;
+	height: 144px;
+	background-color: #ffffff;
+	text-transform: capitalize;
+	border-radius: 1rem;
+	box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+	padding: 0 1.5rem 1.5rem 1.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	box-sizing: border-box;
 }
 
 .card h3 {
-    padding-bottom: 5rem;
-    font-style: italic;
-    color: #b74555;
+	padding-bottom: 5rem;
+	font-style: italic;
+	color: #161718;
+}
+
+.card:hover {
+	cursor: pointer;
 }
 
 .right-content {
-    width: 50%;
-    height: 800px;
-    overflow-y: auto;
-    text-align: center;
-    color: black;
-    position: fixed;
-    top: 100px;
-    right: 10px;
+	width: 50%;
+	height: 900px;
+	overflow-y: scroll;
+	scrollbar-width: none;
+	text-align: center;
+	color: black;
+	position: fixed;
+	right: 10px;
+}
+
+.right-content::-webkit-scrollbar {
+	display: none;
 }
 
 .right-content img {
-    margin: 2rem;
-    width: 300px;
+	margin: 2rem;
+	width: 300px;
 }
 
 .right-content h1 {
-    text-transform: uppercase;
-    font-weight: bold;
-    letter-spacing: 1px;
+	text-transform: uppercase;
+	font-weight: bold;
+	letter-spacing: 1px;
 }
 
 .abilities {
-    width: 30%;
-    margin: auto;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin-top: 1rem;
+	width: 30%;
+	margin: auto;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	margin-top: 1rem;
 }
 
 .types {
-    width: 30%;
-    margin: auto;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+	width: 30%;
+	margin: auto;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
 }
 
 .group h3 {
-    text-transform: capitalize;
+	text-transform: capitalize;
 }
 
 .types .group {
-    background-color: #abe2f0;
-    height: 60px;
-    text-transform: uppercase;
-    width: 175px;
-    color: white;
-    padding-top: 0.95rem;
-    border-radius: 0.5rem;
-    font-size: 10px;
-    margin: auto 0.25rem auto 0.25rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+	background-color: #abe2f0;
+	height: 60px;
+	text-transform: uppercase;
+	width: 175px;
+	color: white;
+	padding-top: 0.95rem;
+	border-radius: 0.5rem;
+	font-size: 10px;
+	margin: auto 0.25rem auto 0.25rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .abilities .group {
-    background-color: #b74555;
-    color: white;    
-    height: 60px;
-    text-transform: uppercase;
-    width: 175px;
-    color: white;
-    padding-top: 0.95rem;
-    font-size: 10px;
-    margin: auto 0.25rem auto 0.25rem;
-    border-radius: 8px;
-    margin-bottom: 25px;
+	background-color: #221f20;
+	color: white;
+	height: 60px;
+	text-transform: uppercase;
+	width: 175px;
+	color: white;
+	padding-top: 0.95rem;
+	font-size: 10px;
+	margin: auto 0.25rem auto 0.25rem;
+	border-radius: 8px;
+	margin-bottom: 25px;
 }
 
 .base-stat {
-    margin-top: 1rem;
-    background-color: white;
-    border-radius: 0.5rem;
-    width: 35%;
-    text-align: justify;
-    margin: auto;
-    padding-left: 0.75rem;
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
+	width: 35%;
+	text-align: justify;
+	margin: .5rem auto 1.25rem auto;
+	padding: 0 0.75rem 0.75rem 0.75rem;
 }
 
 .base-stat h3 {
-    text-transform: uppercase;
-    font-style: italic;
-    color: #b74555;
-    padding-top: 0.25rem;
+	text-transform: uppercase;
+	font-style: italic;
+	color: #221f20;
+	padding-top: 0.25rem;
 }
 
 .btn-group {
-    display: flex;
-    padding: 0.1rem;
-    justify-content: space-around;
+	display: flex;
+	padding: 0.1rem;
+	justify-content: space-around;
 }
 
 .btn-group button {
-    outline: none;
-    border: none;
-    width: 150px;
-    padding: 0.75rem 0.5rem;
-    margin: 1rem;
-    font-size: 17px;
-    font-weight: bold;
-    color: white;
-    background-color: #b74555;
-    border-radius: 8px;
+	outline: none;
+	border: none;
+	width: 150px;
+	padding: 0.75rem 0.5rem;
+	margin: 1rem;
+	font-size: 17px;
+	font-weight: bold;
+	color: white;
+	background-color: #221f20;
+	border-radius: 8px;
 }
 
 .info-btn-group {
-    margin-left: 25rem;
-    margin-right: 25rem;
+	margin-left: 25rem;
+	margin-right: 25rem;
 }
 
-
 .skills-btn {
-    margin-top: 1rem;
+	margin-top: 1rem;
 }
 
 .pokemon-name {
-    font-style: italic;
-    color: #b74555;
+	font-style: italic;
+	color: #221f20;
 }
