@@ -1,12 +1,8 @@
 name: React Pokedex CI/CD
 
 on: 
-  schedule:
-    - cron '0 */24 * * *'
-
   push:
-    branches:
-      - master
+    branches: ["master", "gh-pages"]
 
   pull_request:
     branches:
