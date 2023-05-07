@@ -17,7 +17,7 @@ body::-webkit-scrollbar {
 .container {
 	width: 90%;
 	margin: auto;
-	padding-top: 100px;
+	padding-top: 75px;
 	display: flex;
 }
 
@@ -29,17 +29,17 @@ body::-webkit-scrollbar {
 .left-content {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(200px, 0.5fr));
-	grid-gap: 1.8rem;
+	grid-gap: 1rem;
 }
 
 .card {
-	width: 274px;
+	width: 250px;
 	height: 144px;
 	background-color: #ffffff;
 	text-transform: capitalize;
 	border-radius: 1rem;
 	box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
-	padding: 0 1.5rem 1.5rem 1.5rem;
+	padding: 0 1.5rem 1.5rem 0;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -57,14 +57,14 @@ body::-webkit-scrollbar {
 }
 
 .right-content {
-	width: 50%;
-	height: 900px;
+	width: 600px;
+	height: 100vh;
 	overflow-y: scroll;
 	scrollbar-width: none;
-	text-align: center;
 	color: black;
-	position: fixed;
+	text-align: left;
 	right: 10px;
+	margin-left: 10vw;
 }
 
 .right-content::-webkit-scrollbar {
@@ -72,8 +72,8 @@ body::-webkit-scrollbar {
 }
 
 .right-content img {
-	margin: 2rem;
-	width: 300px;
+	width: 250px;
+	margin-left: 5vw;
 }
 
 .right-content h1 {
@@ -83,17 +83,15 @@ body::-webkit-scrollbar {
 }
 
 .abilities {
-	width: 30%;
-	margin: auto;
+	width: 66%;
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-	margin-top: 1rem;
+	margin-top: 0.25rem;
 }
 
 .types {
-	width: 30%;
-	margin: auto;
+	width: 66%;
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
@@ -104,10 +102,9 @@ body::-webkit-scrollbar {
 }
 
 .types .group {
-	background-color: #abe2f0;
-	height: 60px;
+	height: 40px;
 	text-transform: uppercase;
-	width: 175px;
+	width: 200px;
 	color: white;
 	padding-top: 0.95rem;
 	border-radius: 0.5rem;
@@ -119,62 +116,21 @@ body::-webkit-scrollbar {
 }
 
 .abilities .group {
-	background-color: #221f20;
 	color: white;
-	height: 60px;
+	height: 40px;
 	text-transform: uppercase;
-	width: 175px;
+	width: 200px;
 	color: white;
 	padding-top: 0.95rem;
 	font-size: 10px;
-	margin: auto 0.25rem auto 0.25rem;
+	margin: 0.5rem 0.25rem auto 0.25rem;
 	border-radius: 8px;
 	margin-bottom: 25px;
 }
 
-.base-stat {
-	width: 35%;
-	text-align: justify;
-	margin: .5rem auto 1.25rem auto;
-	padding: 0 0.75rem 0.75rem 0.75rem;
-}
-
-.base-stat h3 {
-	text-transform: uppercase;
-	font-style: italic;
-	color: #221f20;
-	padding-top: 0.25rem;
-}
-
-.btn-group {
-	display: flex;
-	padding: 0.1rem;
-	justify-content: space-around;
-}
-
-.btn-group button {
-	outline: none;
-	border: none;
-	width: 150px;
-	padding: 0.75rem 0.5rem;
+.info-modal {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-gap: 1rem;
 	margin: 1rem;
-	font-size: 17px;
-	font-weight: bold;
-	color: white;
-	background-color: #221f20;
-	border-radius: 8px;
-}
-
-.info-btn-group {
-	margin-left: 25rem;
-	margin-right: 25rem;
-}
-
-.skills-btn {
-	margin-top: 1rem;
-}
-
-.pokemon-name {
-	font-style: italic;
-	color: #221f20;
 }

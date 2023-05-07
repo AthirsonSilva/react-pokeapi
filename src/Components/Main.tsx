@@ -6,7 +6,7 @@ const Main = (): JSX.Element => {
 	const [pokedata, setPokedata] = React.useState<any[]>([])
 	const [loading, setLoading] = React.useState<boolean>(true)
 	const [url, setUrl] = React.useState<string>(
-		'https://pokeapi.co/api/v2/pokemon/'
+		'https://pokeapi.co/api/v2/pokemon/?limit=6'
 	)
 	const [nextUrl, setNextUrl] = React.useState<string>('')
 	const [previousUrl, setPreviousUrl] = React.useState<string>('')
@@ -62,9 +62,10 @@ const Main = (): JSX.Element => {
 						infoPokemon={(pokemon) => setPokeDex(pokemon)}
 					/>
 					<br></br>
-					<div className='btn-group'>
+					<div style={{ marginTop: -50, height: 40, marginRight: 35 }} className='btn-group gap-3 mb-4'>
 						{previousUrl && (
 							<button
+								className='btn btn-primary'
 								onClick={(): void => {
 									setPokedata([])
 
@@ -76,6 +77,7 @@ const Main = (): JSX.Element => {
 						)}
 						{nextUrl && (
 							<button
+								className='btn btn-primary'
 								onClick={(): void => {
 									setPokedata([])
 
