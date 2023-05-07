@@ -28,6 +28,12 @@ const Pokeinfo = ({ data }: any): JSX.Element => {
 		['fairy', '#D685AD'],
 		['unknown', '#FFFFFF'],
 	])
+	const animatedImageBaseURL = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/'
+
+	const getAnimatedImage = (id: number): string => {
+		// return `https://www.pokencyclopedia.info/sprites/3ds/ani_6/3ani__0${id}__xy.gif`
+		return `${animatedImageBaseURL}${id}.gif`
+	}
 
 	const getColor = (type: string): string => {
 		return typeColors.get(type) || typeColors.get('unknown')!
@@ -63,7 +69,7 @@ const Pokeinfo = ({ data }: any): JSX.Element => {
 					}} className='pokemon-name'>
 						{data.name.toString()} - #{data.id}
 					</h1>
-					<img src={data.sprites.front_default} alt='pokemon' />
+					<img src={getAnimatedImage(data.id)} alt={data.name} />
 					<section className='grid grid-rows-2 mb-16'>
 						<div className='types grid grid-flow-col'>
 							{data.types.map((item: any) => {

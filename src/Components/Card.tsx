@@ -9,6 +9,13 @@ const Card = ({
 	loading: boolean
 	infoPokemon: (pokemon: any) => void
 }): JSX.Element => {
+	const animatedImageBaseURL = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/'
+
+	const getAnimatedImage = (id: number): string => {
+		// return `https://www.pokencyclopedia.info/sprites/3ds/ani_6/3ani__0${id}__xy.gif`
+		return `${animatedImageBaseURL}${id}.gif`
+	}
+
 	return (
 		<>
 			{loading ? (
@@ -23,7 +30,9 @@ const Card = ({
 								onClick={(): void => infoPokemon(item)}
 							>
 								<img
-									src={item.sprites.front_default}
+									className='mt-3'
+									src={getAnimatedImage(item.id)}
+									width={60}
 									alt='pokemon'
 								/>
 								<h3>{item.species.name}</h3>
