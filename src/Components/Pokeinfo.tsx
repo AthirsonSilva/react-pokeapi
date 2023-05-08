@@ -31,8 +31,10 @@ const Pokeinfo = ({ data }: any): JSX.Element => {
 	const animatedImageBaseURL = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/'
 
 	const getAnimatedImage = (id: number): string => {
-		// return `https://www.pokencyclopedia.info/sprites/3ds/ani_6/3ani__0${id}__xy.gif`
-		return `${animatedImageBaseURL}${id}.gif`
+		if (id < 10) return `https://www.pokencyclopedia.info/sprites/3ds/ani_6/3ani__00${id}__xy.gif`
+
+		return `https://www.pokencyclopedia.info/sprites/3ds/ani_6/3ani__0${id}__xy.gif`
+		// return `${animatedImageBaseURL}${id}.gif`
 	}
 
 	const getColor = (type: string): string => {

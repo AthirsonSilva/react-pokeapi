@@ -54,6 +54,9 @@ const Main = (): JSX.Element => {
 
 	return (
 		<>
+			<div>
+				{/* <SearchPokemon pokeData={pokedata} setPokeData={setPokedata} /> */}
+			</div>
 			<div className='container'>
 				<div className='left-content'>
 					<Card

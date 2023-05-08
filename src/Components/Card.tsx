@@ -29,13 +29,13 @@ const Card = ({
 								key={item.id}
 								onClick={(): void => infoPokemon(item)}
 							>
+								<h3>{item.species.name}</h3>
 								<img
-									className='mt-3'
+									className=''
 									src={getAnimatedImage(item.id)}
 									width={60}
 									alt='pokemon'
 								/>
-								<h3>{item.species.name}</h3>
 							</div>
 						</>
 					)
